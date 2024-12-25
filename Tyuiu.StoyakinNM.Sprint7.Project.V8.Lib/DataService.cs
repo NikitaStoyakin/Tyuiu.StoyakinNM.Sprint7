@@ -1,19 +1,28 @@
-﻿namespace Tyuiu.StoyakinNM.Sprint7.Project.V8.Lib
+﻿using System.Text;
+using System.Text.Encodings.Web;
+
+namespace Tyuiu.StoyakinNM.Sprint7.Project.V8.Lib
 {
     public class DataService
     {
         public List<string[]> LoadDataFromFile(string path)
         {
-            string line = File.ReadAllText(path).Replace('\n', '\r');
-            string[] lines = line.Split('\r', StringSplitOptions.RemoveEmptyEntries);
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            string[] lines = File.ReadAllLines(path, Encoding.GetEncoding("windows-1251"));
             List<string[]> strings = new List<string[]>();
-            for (int i = 0; i < lines.Length; i++)
+
+            foreach (string line in lines)
             {
-                strings.Add(lines[i].Split(';'));
-
+                strings.Add(line.Split(';').Select(s => s.Trim()).ToArray());
             }
-            return strings;
 
+            foreach (var row in strings)
+            {
+                Console.WriteLine(string.Join(", ", row));
+            }
+
+            return strings;
         }
     }
 }
