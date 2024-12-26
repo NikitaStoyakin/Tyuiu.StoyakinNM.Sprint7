@@ -289,7 +289,6 @@ namespace Project.V8
             {
                 this.buttonAdd_SNM.Enabled = true;
                 this.buttonRemove_SNM.Enabled = true;
-                this.buttonMarkDelete_SNM.Enabled = true;
 
             }
             else
@@ -302,58 +301,36 @@ namespace Project.V8
 
         private void buttonAdd_SNM_MouseEnter(object sender, EventArgs e)
         {
-            toolTipInfo_SNM.ToolTipTitle = "Добавить";
+            toolTipInfo_SNM.SetToolTip(buttonAdd_SNM, "Нажмите, чтобы добавить ряд");
             toolTipInfo_SNM.ToolTipIcon = ToolTipIcon.Info;
         }
 
         private void buttonSave_SNM_MouseEnter(object sender, EventArgs e)
         {
-            toolTipInfo_SNM.ToolTipTitle = "Сохранить";
+            toolTipInfo_SNM.SetToolTip(buttonSave_SNM, "Нажмите, чтобы сохранить данные");
             toolTipInfo_SNM.ToolTipIcon = ToolTipIcon.Info;
         }
         private void buttonLoad_SNM_MouseEnter(object sender, EventArgs e)
         {
-            toolTipInfo_SNM.ToolTipTitle = "Загрузить";
+            toolTipInfo_SNM.SetToolTip(buttonLoad_SNM, "Нажмите, чтобы загрузить данные из файла");
             toolTipInfo_SNM.ToolTipIcon = ToolTipIcon.Info;
 
         }
         private void buttonRemove_SNM_MouseEnter(object sender, EventArgs e)
         {
-            toolTipInfo_SNM.ToolTipTitle = "Удалить";
+            toolTipInfo_SNM.SetToolTip(buttonRemove_SNM, "Нажмите, чтобы удалить ряд");
             toolTipInfo_SNM.ToolTipIcon = ToolTipIcon.Info;
         }
-        private void buttonSearchDriverNum_SNM_MouseEnter(object sender, EventArgs e)
+        private void buttonSearchNum_SNM_MouseEnter(object sender, EventArgs e)
         {
-            toolTipInfo_SNM.ToolTipTitle = "Поиск";
+            toolTipInfo_SNM.SetToolTip(buttonSearchNum_SNM, "Нажмите, чтобы выполнить поиск по номеру автомобиля в списке");
             toolTipInfo_SNM.ToolTipIcon = ToolTipIcon.Info;
         }
         private void buttonSearchAutoNum_SNM_MouseEnter(object sender, EventArgs e)
         {
-            toolTipInfo_SNM.ToolTipTitle = "Поиск";
+            toolTipInfo_SNM.SetToolTip(buttonSearchCarNum_SNM, "Нажмите, чтобы выполнить посик по номеру машины");
             toolTipInfo_SNM.ToolTipIcon = ToolTipIcon.Info;
         }
-        private void buttonMarkDelete_SNM_MouseEnter(object sender, EventArgs e)
-        {
-            toolTipInfo_SNM.ToolTipTitle = "Отметить ряд для удаления";
-            toolTipInfo_SNM.ToolTipIcon = ToolTipIcon.Info;
-        }
-
-        private void buttonMarkDelete_SNM_Click(object sender, EventArgs e)
-        {
-            if (this.dataGridViewChanged_SNM.SelectionMode == DataGridViewSelectionMode.FullRowSelect)
-            {
-                this.dataGridViewChanged_SNM.SelectionMode = DataGridViewSelectionMode.CellSelect;
-                this.buttonRemove_SNM.Enabled = false;
-                this.buttonRemove_SNM.Visible = false;
-            }
-            else
-            {
-                this.dataGridViewChanged_SNM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                this.buttonRemove_SNM.Enabled = false;
-                this.buttonRemove_SNM.Visible = false;
-            }
-        }
-
         private void dataGridViewChanged_SNM_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             cellInt = this.dataGridViewChanged_SNM.CurrentCell.ValueType == typeof(int) ? Convert.ToInt32(this.dataGridViewChanged_SNM.CurrentCell.Value) : 0;
@@ -370,7 +347,7 @@ namespace Project.V8
 
         private void buttonRemove_SNM_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Вы уверены, что хотите удалить данный ряд?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var confirmResult = MessageBox.Show("Вы ДЕЙСТВИТЕЛЬНО уверены, что хотите удалить данный ряд? Это действие необратимо.", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (confirmResult == DialogResult.Yes)
             {
                 foreach (DataGridViewRow row in dataGridViewChanged_SNM.SelectedRows)
@@ -381,3 +358,4 @@ namespace Project.V8
         }
     }
 }
+

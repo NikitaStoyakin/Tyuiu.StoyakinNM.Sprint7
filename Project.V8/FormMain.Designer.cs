@@ -62,7 +62,6 @@
             guideToolStripMenuItem_SNM = new ToolStripMenuItem();
             panelOne_SNM = new Panel();
             groupBoxDataGridActions_SNM = new GroupBox();
-            buttonMarkDelete_SNM = new Button();
             buttonRemove_SNM = new Button();
             buttonAdd_SNM = new Button();
             groupBoxFileActions_SNM = new GroupBox();
@@ -103,7 +102,7 @@
             panelTwo_SNM.Dock = DockStyle.Top;
             panelTwo_SNM.Location = new Point(0, 24);
             panelTwo_SNM.Name = "panelTwo_SNM";
-            panelTwo_SNM.Size = new Size(829, 319);
+            panelTwo_SNM.Size = new Size(738, 319);
             panelTwo_SNM.TabIndex = 5;
             // 
             // groupBoxData_SNM
@@ -112,7 +111,7 @@
             groupBoxData_SNM.Dock = DockStyle.Fill;
             groupBoxData_SNM.Location = new Point(0, 0);
             groupBoxData_SNM.Name = "groupBoxData_SNM";
-            groupBoxData_SNM.Size = new Size(829, 319);
+            groupBoxData_SNM.Size = new Size(738, 319);
             groupBoxData_SNM.TabIndex = 0;
             groupBoxData_SNM.TabStop = false;
             groupBoxData_SNM.Text = "Данные";
@@ -125,7 +124,7 @@
             tabControlData_SNM.Location = new Point(3, 19);
             tabControlData_SNM.Name = "tabControlData_SNM";
             tabControlData_SNM.SelectedIndex = 0;
-            tabControlData_SNM.Size = new Size(823, 297);
+            tabControlData_SNM.Size = new Size(732, 297);
             tabControlData_SNM.TabIndex = 0;
             tabControlData_SNM.Tag = "";
             tabControlData_SNM.SelectedIndexChanged += tabControlData_SNM_SelectedIndexChanged;
@@ -136,7 +135,7 @@
             autoTab_SNM.Location = new Point(4, 24);
             autoTab_SNM.Name = "autoTab_SNM";
             autoTab_SNM.Padding = new Padding(3);
-            autoTab_SNM.Size = new Size(815, 269);
+            autoTab_SNM.Size = new Size(724, 269);
             autoTab_SNM.TabIndex = 0;
             autoTab_SNM.Text = "Автопарк";
             autoTab_SNM.UseVisualStyleBackColor = true;
@@ -150,7 +149,7 @@
             dataGridViewAuto_SNM.Name = "dataGridViewAuto_SNM";
             dataGridViewAuto_SNM.ReadOnly = true;
             dataGridViewAuto_SNM.RowHeadersVisible = false;
-            dataGridViewAuto_SNM.Size = new Size(809, 263);
+            dataGridViewAuto_SNM.Size = new Size(718, 263);
             dataGridViewAuto_SNM.TabIndex = 0;
             // 
             // ColumnNumber
@@ -227,6 +226,7 @@
             dataGridViewChanged_SNM.Location = new Point(3, 3);
             dataGridViewChanged_SNM.Name = "dataGridViewChanged_SNM";
             dataGridViewChanged_SNM.RowHeadersVisible = false;
+            dataGridViewChanged_SNM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewChanged_SNM.Size = new Size(809, 263);
             dataGridViewChanged_SNM.TabIndex = 1;
             dataGridViewChanged_SNM.CellBeginEdit += dataGridViewChanged_SNM_CellBeginEdit;
@@ -301,7 +301,7 @@
             menuStripTools_SNM.Items.AddRange(new ToolStripItem[] { programtoolStripMenuItem_SNM, helpToolStripMenuItem_SNM });
             menuStripTools_SNM.Location = new Point(0, 0);
             menuStripTools_SNM.Name = "menuStripTools_SNM";
-            menuStripTools_SNM.Size = new Size(829, 24);
+            menuStripTools_SNM.Size = new Size(738, 24);
             menuStripTools_SNM.TabIndex = 7;
             menuStripTools_SNM.Text = "menuStrip1";
             // 
@@ -355,33 +355,20 @@
             panelOne_SNM.Dock = DockStyle.Bottom;
             panelOne_SNM.Location = new Point(0, 341);
             panelOne_SNM.Name = "panelOne_SNM";
-            panelOne_SNM.Size = new Size(829, 109);
+            panelOne_SNM.Size = new Size(738, 109);
             panelOne_SNM.TabIndex = 8;
             // 
             // groupBoxDataGridActions_SNM
             // 
-            groupBoxDataGridActions_SNM.Controls.Add(buttonMarkDelete_SNM);
             groupBoxDataGridActions_SNM.Controls.Add(buttonRemove_SNM);
             groupBoxDataGridActions_SNM.Controls.Add(buttonAdd_SNM);
             groupBoxDataGridActions_SNM.Dock = DockStyle.Fill;
             groupBoxDataGridActions_SNM.Location = new Point(537, 0);
             groupBoxDataGridActions_SNM.Name = "groupBoxDataGridActions_SNM";
-            groupBoxDataGridActions_SNM.Size = new Size(292, 109);
+            groupBoxDataGridActions_SNM.Size = new Size(201, 109);
             groupBoxDataGridActions_SNM.TabIndex = 2;
             groupBoxDataGridActions_SNM.TabStop = false;
             groupBoxDataGridActions_SNM.Text = "Таблица";
-            // 
-            // buttonMarkDelete_SNM
-            // 
-            buttonMarkDelete_SNM.Enabled = false;
-            buttonMarkDelete_SNM.Image = Properties.Resources.icons5;
-            buttonMarkDelete_SNM.Location = new Point(192, 36);
-            buttonMarkDelete_SNM.Name = "buttonMarkDelete_SNM";
-            buttonMarkDelete_SNM.Size = new Size(80, 54);
-            buttonMarkDelete_SNM.TabIndex = 4;
-            buttonMarkDelete_SNM.UseVisualStyleBackColor = true;
-            buttonMarkDelete_SNM.Click += buttonMarkDelete_SNM_Click;
-            buttonMarkDelete_SNM.MouseEnter += buttonMarkDelete_SNM_MouseEnter;
             // 
             // buttonRemove_SNM
             // 
@@ -392,9 +379,8 @@
             buttonRemove_SNM.Size = new Size(80, 54);
             buttonRemove_SNM.TabIndex = 3;
             buttonRemove_SNM.UseVisualStyleBackColor = true;
-            buttonRemove_SNM.Visible = false;
             buttonRemove_SNM.Click += buttonRemove_SNM_Click;
-            buttonRemove_SNM.Enter += buttonRemove_SNM_MouseEnter;
+            buttonRemove_SNM.MouseEnter += buttonRemove_SNM_MouseEnter;
             // 
             // buttonAdd_SNM
             // 
@@ -430,7 +416,7 @@
             buttonSave_SNM.TabIndex = 3;
             buttonSave_SNM.UseVisualStyleBackColor = true;
             buttonSave_SNM.Click += buttonSave_SNM_Click;
-            buttonSave_SNM.Enter += buttonSave_SNM_MouseEnter;
+            buttonSave_SNM.MouseEnter += buttonSave_SNM_MouseEnter;
             // 
             // buttonLoad_SNM
             // 
@@ -487,7 +473,7 @@
             buttonSearchNum_SNM.TabIndex = 1;
             buttonSearchNum_SNM.UseVisualStyleBackColor = true;
             buttonSearchNum_SNM.Click += buttonSearchNum_SNM_Click;
-            buttonSearchNum_SNM.MouseEnter += buttonSearchDriverNum_SNM_MouseEnter;
+            buttonSearchNum_SNM.MouseEnter += buttonSearchNum_SNM_MouseEnter;
             // 
             // textBoxSearchNum_SNM
             // 
@@ -517,7 +503,7 @@
             buttonSearchCarNum_SNM.TabIndex = 2;
             buttonSearchCarNum_SNM.UseVisualStyleBackColor = true;
             buttonSearchCarNum_SNM.Click += buttonSearchCarNum_SNM_Click;
-            buttonSearchCarNum_SNM.MouseEnter += buttonSearchAutoNum_SNM_MouseEnter;
+            buttonSearchCarNum_SNM.MouseEnter += buttonSearchCarNum_SNM_Click;
             // 
             // textBoxSearchCarNum_SNM
             // 
@@ -539,7 +525,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(829, 450);
+            ClientSize = new Size(738, 450);
             Controls.Add(panelOne_SNM);
             Controls.Add(panelTwo_SNM);
             Controls.Add(menuStripTools_SNM);
@@ -622,6 +608,5 @@
         private DataGridViewTextBoxColumn ColumnSpeed;
         private DataGridViewTextBoxColumn ColumnLoad;
         private DataGridViewTextBoxColumn ColumnFuel;
-        private Button buttonMarkDelete_SNM;
     }
 }
